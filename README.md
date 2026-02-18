@@ -1,18 +1,19 @@
 # Synchronous FIFO Design
 ## Overview
-Thi s repository contains a professional implementation of a **Synchronous FIFO** (First-In-First-Out) buffer, designed in SystemVerilog. The module is intended to be a reusable building block for digital systems, focusing on robust flag logic and overflow/underflow protection.
+This repository contains a professional implementation of a **Synchronous FIFO** (First-In-First-Out) buffer, designed in SystemVerilog.
+The module is intended to be a reusable building block for digital systems, focusing on robust flag logic and overflow/underflow protection.
 
 ## Features
-* **Fully Parameterized: Configurable DATA_WIDTH and FIFO_DEPTH.
-* **Synchronous Operation: Single clock domain for write and read operations.
-* **Status Flags: Includes full and empty indicators.
-* **Robust Control: Internal gating logic to prevent data corruption during overflow or underflow conditions.
+* **Fully Parameterized:** Configurable DATA_WIDTH and FIFO_DEPTH.
+* **Synchronous Operation:** Single clock domain for write and read operations.
+* **Status Flags:** Includes full and empty indicators.
+* **Robust Control:** Internal gating logic to prevent data corruption during overflow or underflow conditions.
 
 ## Architecture
 The design utilizes a circular buffer approach with the following components:
-* **Memory Array: Implemented using a register-based array (logic).
-* **Pointers: Independent write and read pointers with automatic wrap-around.
-* **Counter-Based Logic: A dedicated internal counter manages the status flags to ensure reliability.
+* **Memory Array:** Implemented using a register-based array (logic).
+* **Pointers:** Independent write and read pointers with automatic wrap-around.
+* **Counter-Based Logic:** A dedicated internal counter manages the status flags to ensure reliability.
 
 ## Technical Specifications
 | Parameter | Default Value | Description |
