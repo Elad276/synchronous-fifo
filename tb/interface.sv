@@ -8,6 +8,7 @@ interface fifo_if
     logic empty;
     logic full;
     
+    // clocking blocks for driver and monitor
     clocking drv_cb @(posedge clk);
         default input #1ns output #1ns;  //sample input 1 unit time before clock event and push output 1 unit time after clock event  
         output data_in, w_en, r_en;
