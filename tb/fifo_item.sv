@@ -12,7 +12,7 @@ class fifo_item #(parameter WIDTH = 8) extends uvm_sequence_item;
     bit empty;
     bit full;
     
-    function new(string name = "fifo_item");
+    function new(input string name = "fifo_item");
         super.new(name);
     endfunction
     
