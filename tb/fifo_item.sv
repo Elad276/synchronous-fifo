@@ -1,3 +1,6 @@
+`ifndef FIFO_ITEM_SV
+`define FIFO_ITEM_SV
+
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
@@ -36,3 +39,5 @@ class fifo_item #(parameter WIDTH = 8) extends uvm_sequence_item;
     `uvm_object_param_utils_end
      
 endclass
+
+`endif
