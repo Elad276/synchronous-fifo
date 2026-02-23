@@ -1,5 +1,10 @@
+`ifndef FIFO_MONITOR_SV
+`define FIFO_MONITOR_SV
+
 `include "uvm_macros.svh"
 import uvm_pkg::*;
+
+typedef class fifo_item;
 
 class fifo_monitor #(parameter WIDTH = 8) extends uvm_monitor;
     `uvm_component_param_utils(fifo_monitor #(WIDTH))
@@ -37,6 +42,7 @@ class fifo_monitor #(parameter WIDTH = 8) extends uvm_monitor;
                 item_to_report = read_queue.pop_front(); // next item in queue
                 item_to_report.data_out = vif.mon_cb.data_out;
                 monitor_ap.write(item_to_report);
+                `uvm_info("MON_READ", $sformatf("Read Data Captured: %h", item_to_report.data_out), UVM_HIGH)
             end
         
         // write is handle immedietly 
@@ -49,6 +55,7 @@ class fifo_monitor #(parameter WIDTH = 8) extends uvm_monitor;
                 write_item.empty = vif.mon_cb.empty;
 
                 monitor_ap.write(write_item);
+                `uvm_info("MON_WRITE", $sformatf("Write Data Captured: %h", write_item.data_in), UVM_HIGH)
             end
 
         // read stores in item and send him to queue
@@ -60,10 +67,8 @@ class fifo_monitor #(parameter WIDTH = 8) extends uvm_monitor;
             
                 read_queue.push_back(item_to_fill);
             end
-                
-            `uvm_info("MON", $sformatf("Captured Item: %s", item.convert2String()), UVM_LOW)
         end
     endtask
 endclass
     
-    
+`endif    

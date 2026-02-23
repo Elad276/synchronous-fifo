@@ -35,7 +35,7 @@ class fifo_item #(parameter WIDTH = 8) extends uvm_sequence_item;
         `uvm_field_int(data_out,UVM_ALL_ON)
         `uvm_field_int(empty,   UVM_ALL_ON)
         `uvm_field_int(full,    UVM_ALL_ON)
-        //`uvm_field_enum(fifo_op, op, UVM_ALL_ON)
+        `uvm_field_enum(fifo_op, op, UVM_ALL_ON)
     `uvm_object_param_utils_end
      
 endclass
